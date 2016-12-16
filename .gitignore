@@ -7,6 +7,10 @@
 *.jar
 *.war
 *.ear
+*.out
+
+
+# Microsoft files #
 *.docx
 *.doc
 *.xls
