@@ -1,0 +1,18 @@
+To install snort, I had to update sources.list in kali using this source (comment):
+http://null-byte.wonderhowto.com/how-to/hack-like-pro-compile-new-hacking-tool-kali-0155229/
+
+Then sudo apt-get install snort
+Used default IP for sniffing. 
+Created shutdown.html in /var/www using apache
+Rules added in /etc/conf/ca05.conf
+
+The objective of this assignment is to provide you with exposure to an intrusion detection system.
+
+Please create (and verify) a Snort rule that alerts the system administrator whenever a file named "shutdown.html" is accessed via the web by a user external to the system.  Your alert should produce the message "rjs0015:  shutdown.html accessed".
+
+Please upload the following files as a single zip file named rjs0015_CA05.zip 
+
+ca05.rules:  the text file containing your Snort rule(s)
+snort.conf:  the text file required to configure snort for your rule(s)
+log.txt:  the text log file of your session that includes your alert.  Please keep extraneous additional snort alerts to a minimum.
+Hints:  Considering doing this assignment with snort running under a guest operating system via a virtual machine. 

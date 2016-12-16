@@ -1,0 +1,47 @@
+Begin at  4011B0h.
+
+2. What functions are used from the standard C library?
+I did this by checking the functions window, then searching through http://www.acm.uiuc.edu/webmonkeys/book/c_guide/ [C standard library] for matching functions. These were the matching C functions from the standard library:
+Under "F" section of "Names" in IDA:
+atexit
+printf
+gets
+strcmp
+puts
+
+Under "I" section of "Names" in IDA:
+calloc
+malloc
+free
+realloc
+
+3. What data structures are present at the method starting at address 4011B0h
+.text:004011B0 var_38= dword ptr -38h
+.text:004011B0 var_34= dword ptr -34h
+.text:004011B0 var_1B= dword ptr -1Bh
+.text:004011B0 var_C= dword ptr	-0Ch 
+
+car_C is the offset to the stack variable that indicates if a user has root permissions. All of the four var_'s referenced above are stack offsets. So var_C would be like int C, then there would be a buffer defined like char buf1[C]; which is the buffer we will exploit. 
+
+DWORD, or double word, is a 32-bit (4-byte) unsigned integer. 
+EBP, seen with var_C, is the base pointer. It is used to access data on the stack. 
+
+
+4. At a high level, what does the binary do?
+When I tried running the PE file (in a VM of course) I was told cygwin1.dll was not installed. According to Stack Overflow, the reason this is needed is for the gcc compiler. This is useless, since I already knew this was C. Once cygwin1.dll was installed and the PE executed, I got an error that said "The application was unable to start correctly (0xc0000007b). Googling what this problem was presented me with the option to replace about 15 dll files in my Windows install... I'll pass. 
+
+Then I looked in the IDA "Names" window, which either provided some very useful information, or some useless, obfuscated information. Some of the items in the "Names" window in the "A" section are aEnterThePasswo, aAdminpassword, aWelcomeUser, aWelcomeAdminin, aRootPriveleges (Root privelegs granted), aUserPrivelegesG (user priveleges granted). Based on the Strings window, this program can grant root priveleges to a user when the password is provided. 
+
+
+5. The binary has a vulnerability.  What is it?  Be specific.
+var_C is the variable that indicates if the permissions granted are user or administrator level. var_1B is the buffer, which is important. Since var_C is after var_1B, by overflowing var_1B into var_C we can potentially change the permissions to be root instead of standard user permissions. 
+There is a possibility for a buffer overflow, since the PE is using the C function gets. 
+gets() does not check array bounds and can write a greater length string than the size of the buffer to which the string is written.
+
+
+6. Give the steps necessary to exploit this vulnerability.
+To exploit the buffer overflow using gets(), we can simply send a password longer than the buffer when prompted to "Enter the password: "
+This buffer in this case is 4*16 = 64 bytes so long, so we should just send it a password of length 65 to gain root priveleges. 
+
+
+

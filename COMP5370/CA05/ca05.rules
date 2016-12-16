@@ -1,0 +1,1 @@
+alert tcp any any -> any 80 (msg:"rjs0015: shutdown.html accessed"; content:"/GET shutdown.html"; nocase; sid:1000000; rev:1;)
