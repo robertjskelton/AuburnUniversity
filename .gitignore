@@ -7,8 +7,15 @@
 *.jar
 *.war
 *.ear
-*.out
 
+# Others #
+*.out
+*.tar.gz
+*.zip
+*.gzip
+*.bz2
+*.tar
+checkstyle.xml
 
 # Microsoft files #
 *.docx
