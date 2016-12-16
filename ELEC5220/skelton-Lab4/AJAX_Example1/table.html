@@ -1,0 +1,42 @@
+<!-- AJAX On Your Own Exercise Part 1 -->
+<html>
+<head>
+	<script src="tableclientSide.js"></script>
+</head>
+<body>
+	<!-- Build Table containing items and editable quantities -->
+	<table  border=\"1\" cellspacing=\"0\" cellpadding=\"5\">
+		<tr><td>Item Name</td><td>Price</td><td>Quantity</td><td>Total</td></tr>
+
+		<!-- CD 1 -->
+		<tr><td>CD 1</td><td>$12.50</td><td>
+			<form>
+				<input type="text" id="cd1quantity" onchange="updatecd1(this.value)"></input>
+			</form>
+		</td><td>$<span id="cd1Total">0.00</span></tr>
+
+		<!-- CD 7 -->
+		<tr><td>CD 7</td><td>$12.95</td><td>
+			<form>
+				<input type="text" id="cd7quantity" onkeyup="updatecd7(this.value)"></input>
+			</form>
+		</td><td>$<span id="cd7Total">0.00</span></tr>
+
+		<!-- Movie A -->
+		<tr><td>Movie A</td><td>$19.95</td><td>
+			<input type="text" id="movieAquantity" onkeyup="updatemovie(this.value)"></input>
+		</form>
+	</td><td>$<span id="movieATotal">0.00</span></tr>
+
+	<!-- Shipping and Total Rows -->
+	<tr>
+		<td colspan="3" align="left">
+			Shipping/Handling(0.5%)<br>Total Purchase
+		</td>
+		<td>
+			<span id="total"></span>
+		</td>
+	</tr>
+</table>
+</body>
+</html>

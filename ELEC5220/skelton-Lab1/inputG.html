@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Post Form Input HTML file</title>
+</head>
+<body>
+</br>
+<form action="inputGet.php" method="get">
+<b>Robert Skelton's Awesome Data Webpage</b><br>
+<!--Get name-->
+Name: <input type="text" name="name" /> </br>
+
+<!--Get password using the password function of HTML-->
+Password: <input type="password" name="password" /><br>
+
+<!--Get gender using Radio buttons-->
+Gender: Male<input type="radio" name="gender" value="Male"> Female<input type="radio" name="gender" value="Female">
+
+<!--Pull down box for favorite color-->
+<br>Favorite Color:<select name="color">
+<option value="orange">Orange</option>
+<option value="blue">Blue</option>
+<option value="other">I hate orange and blue and America.</option>
+</select>
+
+<!--Checkboxes for car choices-->
+<br>Which car(s) would you own? <input type="checkbox" name="cars" value="Cadillac">Cadillac<input type="checkbox" name="cars" value="BMW">BMW
+<input type="checkbox" name="cars" value="Benz">Benz
+
+<!--Comment box-->
+<br>Please enter any funny comments you want to tell me:<br><textarea name="comments" rows="10" cols="40"></textarea>
+
+
+<br><input type="submit" value="Enter" />
+</form></body>
+</html>

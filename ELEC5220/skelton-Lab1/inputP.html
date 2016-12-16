@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>Post Form Input HTML file</title>
+</head>
+<body>
+Please enter your name and email address, and then click Enter: </br>
+<form action="inputP.php" method="post">
+Name: <input type="text" name="name" /> </br>
+Password: <input type="password" name="password" /><br>
+<!--Get gender using Radio buttons-->
+
+Gender: <input type="radio" name="gender" value="Option 1"><input type="radio" name="Female" value="Option 2">
+
+<!--Pull down box for favorite color-->
+<br>Favorite Color:<select name="pulldown_box_1">
+<option value="orange">Orange</option>
+<option value="blue">Blue</option>
+<option value="other">I hate orange and blue and America.</option
+</select>
+
+<!--Checkboxes for car choices-->
+<br><input type="checkbox" name="checkbox_1" value="Yes">
+
+<!--Comment box-->
+<br><textarea name="comment_box" rows="10" cols="40"></textarea>
+
+
+<br><input type="submit" value="Enter" />
+</form></body>
+</html>

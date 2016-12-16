@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Cart>
+	<Item>
+		<Name>CD1</Name>
+		<Price>12.5</Price>
+		<Amount>1</Amount>
+		<Subtot>12.5</Subtot>
+	</Item>
+	<Item>
+		<Name>CD7</Name>
+		<Price>12.95</Price>
+		<Amount>2</Amount>
+		<Subtot>25.9</Subtot>
+	</Item>
+	<Item>
+		<Name>MovieA</Name>
+		<Price>19.95</Price>
+		<Amount>2</Amount>
+		<Subtot>39.9</Subtot>
+	</Item>
+</Cart>

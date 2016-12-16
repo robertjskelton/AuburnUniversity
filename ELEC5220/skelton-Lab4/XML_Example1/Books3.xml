@@ -1,0 +1,41 @@
+<book_collection>
+	<book>
+		<title>Dracula</title>
+		<year>1989</year>
+		<author>Bram Stoker</author>
+		<price>$10</price>
+		<genre>Drama</genre>
+	</book>
+	<book>
+		<title>Moby Dick</title>
+		<year>1851</year>
+		<author>Herman Melville</author>
+		<price>$15</price>
+		<genre>Ficton</genre>
+	</book>
+	<book>
+		<title>Angels and Demons</title>
+		<year>2000</year>
+		<author>Dan Brown</author>
+		<price>$8</price>
+		<genre>Ficton</genre>
+	</book>
+		<book>
+		<title>The Count of Monte Cristo</title>
+		<year>1844</year>
+		<author>Alexandre Dumas</author>
+		<author2>Bob Jones</author2>
+		<author3>Robert Skelton?!</author3>
+		<price>$11</price>
+		<genre>Ficton</genre>
+	</book>
+	<book>
+		<title>Naked Came the Manatee</title>
+		<genre>Comedy</genre>
+		<year>1998</year>
+		<price>$17</price>
+		<author>Carl Hissasen</author>
+		<author2>Elmore Leonard</author2>
+		<author3>Dave Barry</author3>
+	</book>
+</book_collection>

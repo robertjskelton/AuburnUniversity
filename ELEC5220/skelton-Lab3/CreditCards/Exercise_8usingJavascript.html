@@ -1,0 +1,119 @@
+<html>
+	<body>
+		<script type='text/javascript'>
+	// Checks the date to see if CC is expired
+	function checkDate(form) {
+		var month1 = form.month.value;
+		var year1 = form.year.value;
+		var today = new Date();
+		var month = today.getMonth() + 1;
+		var year = today.getFullYear();
+		if(year1 < year) {
+			alert("Your Credit Card is Expired");
+			return false;
+		}
+		else if(month1 < month && year == year1) {
+			alert("Your Credit Card is Expired");
+			return false;
+		}
+		// only valid result
+		else {
+			document.getElementById("result").innerHTML= "Your Credit Card is Valid";
+			return true;
+		}
+	}
+
+	//Checks the validity of 4 types of credit cards
+	function check_card_number(form) {
+		var number = form.number.value.toString();
+		var type = form.type.value;
+		switch (type) { // switch for 4 types of CC's {
+			// check visa for starting 4
+			case 'Visa':
+			if (number[0] == 4 && (number.length ==16 || number.length == 13)) {
+				break;
+			}
+			alert("Please Enter A Valid Credit Card Number");
+			elem.focus();
+			return false;
+			// check mastercard for starting 51-55
+			case 'MasterCard':
+			if (number[0] == 5 && number[1] < 6 && number[1] > 0 && number.length == 16) {
+				break;
+			}
+			alert("Please Enter A Valid Credit Card Number");
+			elem.focus();
+			return false;
+			// check discover for starting 6011
+			case 'Discover':
+			if (number[0] == 6 && number[1] == 0 && number[2] == 1 && number[3] == 1 && number.length == 16) {
+				break;
+			}
+			alert("Please Enter A Valid Credit Card Number");
+			elem.focus();
+			return false;
+			// check AMEX for starting 34 or 37
+			case 'American Express': // this could be shortened a little, but I already typed it so whatever
+			// nevermind I shortened it lol
+			// I'm so good at commenting code
+			if ((number[0] == 3) && (number[1] == 4 || number[1] == 7) && (number.length == 15)) {
+				break;
+			}
+			alert("Please Enter A Valid Credit Card Number");
+			elem.focus();
+			return false;
+			default:
+			return 0;
+		}
+
+		// Run the sum of Luhn
+		var total = 0, digit = 0, isEven = false;
+		number = number.replace(/\D/g, "");
+		for (var i = number.length - 1; i >= 0; i--) {
+			var temp = number.charAt(i),
+			digit = parseInt(temp, 10);
+
+			if (isEven) {
+				digit = digit * 2;
+				if (digit > 9) digit -= 9;
+			}
+
+			total += digit;
+			isEven = !isEven;
+		}
+
+		// if Luhn is confirmed, print confirmation message
+		if(total % 10 == 0) {
+			document.getElementById("result1").innerHTML= "Your Credit Card Number has been Verified";
+			return true;
+		}
+		// else, its a bad CC   
+		else {
+			alert("Please Enter A Valid Credit Card Number");
+			elem.focus();
+			return false;
+		}
+	}
+	</script>
+
+	<form>
+		<!--Same form as before, but now it takes in CC number AND exp date-->
+			Please enter the numerical month and year of the credit card expiration date.<br><br>
+			Month: <input type="text" name="month" size="2" maxlength="2"><br>  
+			Year: <input type="text" name="year" size ="4" maxlength="4"><br><br> 
+			<input type="button" value="Check Expiration Date" onclick="checkDate(this.form)">
+			<p id="result">  Validation status: unknown</p> 
+			Please select the credit card type:<br>
+			<select name="type">  
+				<option value="Visa">Visa</option>
+				<option value="MasterCard">Master Card</option>
+				<option value="Discover">Discover</option>
+				<option value="American Express">American Express</option>
+			</select><br><br>
+			Please enter the credit card number:<br>
+			<input type="text" name="number" size="16" maxlength="16"><br><br>  
+			<input type="button" value="Check Credit Card" onclick="check_card_number(this.form)">
+			<p id="result1">  Validation status: unknown</p>
+		</form>
+	</body>
+</html>

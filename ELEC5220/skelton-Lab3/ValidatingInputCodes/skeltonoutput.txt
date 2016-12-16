@@ -1,0 +1,6 @@
+<first>Robert</first>
+<last>Skelton</last>
+<phone>9313092911</phone>
+<address>330 w glenn ave auburn al</address>
+<zip>36830</zip> 
+<birthday>10/10/1991</birthday> 
